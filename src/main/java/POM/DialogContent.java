@@ -15,17 +15,29 @@ public class DialogContent extends _01_ParentClass {
 
     }
 
-    @FindBy(xpath = "//ms-add-button//button")
-    private WebElement AddButton;
+    @FindBy(css = "a[title='Contact Us']")
+    private WebElement ContactButton;
 
-    @FindBy(xpath = "//ms-text-field[@formcontrolname='name']/input")
-    private WebElement NameInput;
+    @FindBy(id = "submitMessage")
+    private WebElement SubmittButton;
 
-    @FindBy(xpath = "//div[contains(text(),'successfully')]")
+    @FindBy(css = "a[title='Log me out']")
+    private WebElement LogOutButton;
+
+    @FindBy(css = "textarea[id='message']")
+    private WebElement TextMessage;
+
+    @FindBy(css = ".alert.alert-success")
     private WebElement SuccessfullyMessage;
 
-    @FindBy(xpath = "//span[@class='mat-option-text']")
-    private List<WebElement> userTypeAllOptions;
+    @FindBy(id = "id_contact")
+    private List<WebElement> SubjectHeading;
+
+    @FindBy(name = "id_order")
+    private List<WebElement> IdOrder;
+
+    @FindBy(css = "select[style='display: inline-block;']")
+    private List<WebElement> Product;
 
 
 
@@ -35,8 +47,14 @@ public class DialogContent extends _01_ParentClass {
 
         switch (ElementName) {
 
-            case "AddButton":
-                myElement = AddButton;
+            case "ContactButton":
+                myElement = ContactButton;
+                break;
+            case "SubmittButton":
+                myElement = SubmittButton;
+                break;
+            case "LogOutButton":
+                myElement = LogOutButton;
                 break;
 
         }
@@ -46,17 +64,14 @@ public class DialogContent extends _01_ParentClass {
 
     public void findElementAndSendKeysFunction(String ElementName, String value) {
 
-//        Find the element in this class and send the element to sendKeysFunction
         switch (ElementName) {
-            case "NameInput":
-                myElement = NameInput;
+            case "TextMessage":
+                myElement = TextMessage;
                 break;
-
-
         }
-//            Create a method in parentClass which is going to wait first and sendKeys
         sendKeysFunction(myElement, value);
     }
+
 
     public void findElementAndVerifyElementContainText(String elementName , String WhichText){
 
@@ -65,22 +80,35 @@ public class DialogContent extends _01_ParentClass {
             case "SuccessfullyMessage":
                 myElement=SuccessfullyMessage;
                 break;
+        }
+        ElementContainsText(myElement , WhichText);
+    }
+
+
+    List<WebElement> myDropdownElement;
+
+    public void clickOnElementInTheDropdown(String elementName, String whichOption){
+
+        switch (elementName){
+
+            case "SubjectHeading":
+                myDropdownElement=SubjectHeading;
+                break;
+            case "IdOrder":
+                myDropdownElement=IdOrder;
+                break;
+            case "Product":
+                myDropdownElement=Product;
+                break;
 
         }
 
-//            Creating one method in parent class which is get the element and it is containing the WhichText(parameter)
 
-        ElementContainsText(myElement , WhichText);
+        for(int i = 0 ; i<myDropdownElement.size() ; i++){
 
-    }
+            if(myDropdownElement.get(i).getText().contains(whichOption)){
 
-    public void clickOnElementInTheDropdown(String whichOption){
-
-        for(int i = 0 ; i<userTypeAllOptions.size() ; i++){
-
-            if(userTypeAllOptions.get(i).getText().contains(whichOption)){
-
-                userTypeAllOptions.get(i).click();
+                myDropdownElement.get(i).click();
                 break;
             }
 
