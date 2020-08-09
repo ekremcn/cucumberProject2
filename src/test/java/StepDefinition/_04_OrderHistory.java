@@ -1,6 +1,7 @@
 package StepDefinition;
 
 import POM.DialogContent;
+import Utilities.Driver;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -13,7 +14,7 @@ import org.testng.Assert;
 
 public class _04_OrderHistory {
 
-    WebDriver driver;
+    public WebDriver driver = Driver.getDriver();
     DialogContent dialogContent = new DialogContent();
     String modelName;
 
@@ -77,8 +78,13 @@ public class _04_OrderHistory {
 
 
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("scrollBy(0,500);");
+        js.executeScript("scrollBy(0,1500);");
 
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         WebElement modelInOrderHistory=driver.findElement((By.xpath("(//table[@class='table table-bordered']/tbody/tr/td)[1]")));
         String element = modelInOrderHistory.getText();
         System.out.println(element);
