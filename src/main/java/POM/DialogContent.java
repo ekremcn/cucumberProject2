@@ -13,14 +13,13 @@ import java.util.Random;
 
 public class DialogContent extends _01_ParentClass {
 
-    private List<WebElement> D;
-
     public DialogContent() {
 
         PageFactory.initElements(Driver.getDriver(), this);
 
     }
 
+    //  LOGIN ELEMENTS
     @FindBy(css = ".login")
     private WebElement loginButton;
 
@@ -32,6 +31,7 @@ public class DialogContent extends _01_ParentClass {
 
     @FindBy(css = "span>i[class='icon-lock left']")
     private WebElement signIn;
+
 
     //  CONTACT_US ELEMENTS
     @FindBy(css = "a[title='Contact Us']")
