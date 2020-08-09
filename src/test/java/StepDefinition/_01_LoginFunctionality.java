@@ -1,6 +1,6 @@
 package StepDefinition;
 
-import POM.DialogContent;
+import POM.ContactUsPOM;
 import POM._01_ParentClass;
 import Utilities.Driver;
 import cucumber.api.java.en.Given;
@@ -14,7 +14,7 @@ import org.openqa.selenium.WebElement;
 public class _01_LoginFunctionality {
 
     _01_ParentClass parentClass = new _01_ParentClass();
-    DialogContent dialogContent = new DialogContent();
+    ContactUsPOM contactUsPOM = new ContactUsPOM();
     WebDriver driver;
 
     @Given("^Navigate to site$")
@@ -28,10 +28,10 @@ public class _01_LoginFunctionality {
     @When("^Enter the username and password and click on login button$")
     public void enter_the_username_and_password_and_click_on_login_button() {
 
-        dialogContent.findElementAndClickFunction("loginButton");
-        dialogContent.findElementAndSendKeysFunction("emailInput", "ekrem20092013@gmail.com");
-        dialogContent.findElementAndSendKeysFunction("password", "3229e");
-        dialogContent.findElementAndClickFunction("signIn");
+        contactUsPOM.findElementAndClickFunction("loginButton");
+        contactUsPOM.findElementAndSendKeysFunction("emailInput", "ekrem20092013@gmail.com");
+        contactUsPOM.findElementAndSendKeysFunction("password", "3229e");
+        contactUsPOM.findElementAndClickFunction("signIn");
     }
 
     @Then("^User should login successfully$")

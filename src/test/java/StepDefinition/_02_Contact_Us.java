@@ -1,19 +1,18 @@
 package StepDefinition;
 
-import POM.DialogContent;
-import cucumber.api.PendingException;
+import POM.ContactUsPOM;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class _02_Contact_Us {
 
-    DialogContent dialogContent = new DialogContent();
+    ContactUsPOM contactUsPOM = new ContactUsPOM();
 
     @And("^Navigate to Contact_us$")
     public void navigateToContact_us() {
 
-        dialogContent.findElementAndClickFunction("ContactButton");
+        contactUsPOM.findElementAndClickFunction("ContactButton");
 
 
     }
@@ -21,12 +20,12 @@ public class _02_Contact_Us {
     @When("^Fill out the message box \"([^\"]*)\", \"([^\"]*)\", and \"([^\"]*)\"$")
     public void fillOutTheMessageBoxAnd(String subject, String id_order, String product) {
 
-        dialogContent.findElementAndClickFunction("subjectHeadingButton");
-        dialogContent.clickOnElementInTheDropdown("SubjectHeading", subject);
-        dialogContent.clickOnElementInTheDropdown("IdOrder", id_order);
-        dialogContent.clickOnElementInTheDropdown("Product", product);
-        dialogContent.findElementAndSendKeysFunction("TextMessage", "Cucumber is Best!!!");
-        dialogContent.findElementAndClickFunction("SubmittButton");
+        contactUsPOM.findElementAndClickFunction("subjectHeadingButton");
+        contactUsPOM.clickOnElementInTheDropdown("SubjectHeading", subject);
+        contactUsPOM.clickOnElementInTheDropdown("IdOrder", id_order);
+        contactUsPOM.clickOnElementInTheDropdown("Product", product);
+        contactUsPOM.findElementAndSendKeysFunction("TextMessage", "Cucumber is Best!!!");
+        contactUsPOM.findElementAndClickFunction("SubmittButton");
 
 
     }
@@ -35,7 +34,7 @@ public class _02_Contact_Us {
     @Then("^Success message should be displayed$")
     public void successMessageShouldBeDisplayed() {
 
-        dialogContent.findElementAndVerifyElementContainText("SuccessfullyMessage", "successfully");
+        contactUsPOM.findElementAndVerifyElementContainText("SuccessfullyMessage", "successfully");
 
     }
 

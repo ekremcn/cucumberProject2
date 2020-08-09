@@ -1,23 +1,25 @@
 package StepDefinition;
 
-import POM.DialogContent;
+import POM.ContactUsPOM;
+import POM.SpecialsPOM;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 
 
 public class _03_Specials {
 
-    DialogContent dialogContent=new DialogContent();
+    SpecialsPOM specials =new SpecialsPOM();
 
     @And("^Navigate to Specials$")
     public void navigateToSpecials() {
 
-    dialogContent.findElementAndClickFunction("SpecialsButton");
+        specials.findElementAndClickFunction("SpecialsButton");
     }
 
     @Then("^I should see the discount on the price$")
     public void iShouldSeeTheDiscountOnThePrice() {
-        dialogContent.twoListIstEqual();
+
+        specials.twoListIstEqual();
     }
 
 
