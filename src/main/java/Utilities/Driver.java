@@ -9,9 +9,9 @@ public class Driver {
 
     public static WebDriver getDriver(){
 
-//        if the driver is == null then create a driver if not then give me current driver
+
         if(driver==null){
-            WebDriverManager.chromedriver().setup(); // this line is for System.setproperty
+            WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();
         }
 
@@ -19,16 +19,12 @@ public class Driver {
     }
 
 
-    /*
-        We are going to call this method after each scenario.
-     */
     public static void QuitDriver(){
 
         if(driver!=null){
             driver.quit();
-            driver=null; // if we dont type this line next scenario will fail
+            driver=null;
         }
     }
 
-//    do we need instead of void "Webdriver"
 }
