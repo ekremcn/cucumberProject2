@@ -1,30 +1,37 @@
 package Utilities;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+
 
 public class Driver {
-    private static WebDriver driver;
+
+    private static ThreadLocal<WebDriver> threadDriver = new ThreadLocal<>();
+
+    public static ThreadLocal<String> browserName = new ThreadLocal<>();
 
     public static WebDriver getDriver(){
 
-
-        if(driver==null){
-            WebDriverManager.chromedriver().setup();
-            driver = new ChromeDriver();
+        if(threadDriver.get()==null){
+            setWebDriver(DriverFactory.createInstance(browserName.get()));
         }
+        return threadDriver.get();
+    }
 
-        return driver;
+    public static void setWebDriver(WebDriver driver){
+
+        threadDriver.set(driver);
     }
 
 
     public static void QuitDriver(){
 
-        if(driver!=null){
-            driver.quit();
-            driver=null;
+        if(threadDriver.get()!=null){
+
+            threadDriver.get().quit();
+            WebDriver driver= threadDriver.get();
+            driver = null;
+            threadDriver.set(driver);
         }
     }
-
 }
+

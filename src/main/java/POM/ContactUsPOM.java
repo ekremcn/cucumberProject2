@@ -73,8 +73,7 @@ public class ContactUsPOM extends _01_ParentClass {
             case "signIn":
                 myElement = signIn;
                 break;
-
-                case "ContactButton":
+            case "ContactButton":
                 myElement = ContactButton;
                 break;
             case "SubmittButton":
