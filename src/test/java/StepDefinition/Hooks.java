@@ -1,8 +1,8 @@
-package Utilities;
+package StepDefinition;
 
+import Utilities.Driver;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
-import cucumber.api.java.Before;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -52,7 +52,7 @@ public class Hooks {
             e.printStackTrace();
         }
 
-        Driver.QuitDriver();
+       Driver.QuitDriver();
 
     }
 }
