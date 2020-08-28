@@ -13,12 +13,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Hooks {
-    @Before
-    public void before(){
-//        Add the navigate to website enter username and password
-
-    }
-
 
     @After
     public void after(Scenario scenario){

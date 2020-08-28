@@ -1,5 +1,6 @@
 Feature: Contact us functionality
 
+  @E2E2
   Scenario Outline:
     Given Navigate to site
     When Enter the username and password and click on login button

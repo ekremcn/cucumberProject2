@@ -17,11 +17,10 @@ import java.io.File;
                 "html:target/cucumber-Html-Report",
                 "com.cucumber.listener.ExtentCucumberFormatter:target/ExtentReport/ExtentReportEnd2End.html" // to generate a extend report we need this plugin
         },
-        tags = {"@E2E"},
-        features = {"src/test/java/FeatureFiles"},
+  //      tags = {"@E2E"},
+        features = {"src/test/java/FeatureFiles/Specials.feature", "src/test/java/FeatureFiles/SocialMedia.feature","src/test/java/FeatureFiles/OrderHistory.feature"},
         glue = {"StepDefinition"},
         dryRun = false
-
 )
 
 public class E2EScenario extends AbstractTestNGCucumberTests{

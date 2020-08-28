@@ -5,7 +5,7 @@ Feature: Social Media links functionality
     When Enter the username and password and click on login button
     Then User should login successfully
 
-
+  @E2E
   Scenario: Successfully navigate to following pages
     When  User click the SocialMedia icons CurrentUrl should be displayed
       | facebookIcon   | facebook   |

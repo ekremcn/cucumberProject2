@@ -2,11 +2,8 @@ package StepDefinition;
 
 import POM.SocialMediaPOM;
 import cucumber.api.DataTable;
-import cucumber.api.PendingException;
-import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
+
 
 public class _05_SocialMedia {
 

@@ -1,5 +1,6 @@
 Feature: Order History
 
+    @E2E
   Scenario: Testing that name of the ordered item is the same as the item in the order history page
       Given Navigate to site
       When Enter the username and password and click on login button
